@@ -1,10 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import * as ReactDOM from "react-dom/client";
 import App from "./App";
 
-ReactDOM.render(
+import { CartContextProvider } from "./context/cartContext";
+
+import { GlobalStyles } from "./styles/global";
+
+const container = document.getElementById("root");
+
+const root = ReactDOM.createRoot(container);
+
+root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
+    <CartContextProvider>
+      <GlobalStyles />
+      <App />
+    </CartContextProvider>
+  </React.StrictMode>
 );
